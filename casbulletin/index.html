@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="refresh" content="45"/>
+    <meta name="description" content="CAS Bulletin of Coronavirus Statistics among West Bengal, India, Worldwide">
+	<meta name="keywords" content="CAS Bulletin, Corona, West Bangal, Covid-19, Coronavirus">
+	<meta name="author" content="Biswaranjan Manna">
+    <title>Covid19 CAS Bulletin | West Bengal, India, Worldwide</title>
+    <!-- Font Awesome -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"> -->
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <!-- Material Design Bootstrap -->
+    <!--<link href="css/mdb.min.css" rel="stylesheet">-->
+    <!-- Your custom styles (optional) -->
+    <!--<link href="css/style.css" rel="stylesheet">-->
+<style>
+    .text .col:nth-child(1) {
+        font-size:12px;
+        font-weight: medium;
+    }
+    .text .col:nth-child(2) {
+        font-size:12px;
+        font-weight: bold;
+    }
+    .clear {
+        margin: 0.1em;
+    }
+    #infect{
+        background: #007bff;
+    }
+
+    #death{
+        background: #ff073a;
+    } 
+
+    #cured{
+        background: #28a745;
+    } 
+
+    .right {
+        text-align: right;
+    }
+    .live-text {
+            background: crimson;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+    padding-left: 0.5em;
+ padding: 0.3em 0.8em 0.3em 0.2em;
+ text-align: center;
+    }
+
+    .row {
+        display: flex;
+        font-size: 1em;
+    }
+
+    .row:not(.text) {
+    }
+
+    .live-text-row {
+        margin: 0.2em 0;
+        font-size: 0.7em;
+        background: #484848;
+        padding: 0.2em 0;
+        margin-top: 0.3em;
+    }
+
+
+    .live-text-row div {
+        text-align: left;
+    }
+    .col-3 {
+        flex: 0.3;
+    }
+    .col-7 {
+        flex: 0.7;
+    }
+    .col {
+        flex: 1;
+    }
+    .row.text .col:nth-child(2) {
+        text-align: center;
+    }
+    .row.text {
+        padding: 0.1em;
+        color: white;
+    }
+
+    .heading-text {
+        font-weight: bold;
+        font-size: 14px;
+        margin: 0em 0.4em;
+        font-family: arial;
+    }
+
+
+
+    .live-text-col {
+        margin: 0.3em 0;
+    }
+
+    td a {
+        font-size: 10px !important;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.8em;
+        padding: 0.1em;
+    }
+
+    * { box-sizing: border-box; }
+
+    body { font-family: arial; }
+
+    .scene {
+        width: 135px;
+        height: 120px;
+        border: 0px solid #CCC;
+        margin: auto;
+    }
+
+
+    .title {
+        font-weight: bold;
+    }
+
+    .cube__face {
+        position: absolute;
+        width: 135px;
+        height: 120px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .cube__face {
+        background: #f2f2f2;
+    }
+
+  #spinner {
+    -webkit-animation-name: spinner5;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 17s;
+
+    animation-name: spinner5;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    animation-duration: 17s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  @keyframes spinner5 {
+    from,20% {
+      -moz-transform: rotateY(0);
+      -ms-transform: rotateY(0);
+      transform: rotateY(0);
+    }
+    25%,45%  {
+      -moz-transform: rotateY(-90deg);
+      -ms-transform: rotateY(-90deg);
+      transform: rotateY(-90deg);
+    }
+    50%,70%  {
+      -moz-transform: rotateY(-180deg);
+      -ms-transform: rotateY(-180deg);
+      transform: rotateY(-180deg);
+    }
+    75%,95%  {
+      -moz-transform: rotateY(-270deg);
+      -ms-transform: rotateY(-270deg);
+      transform: rotateY(-270deg);
+    }
+    to {
+      -moz-transform: rotateY(-360deg);
+      -ms-transform: rotateY(-360deg);
+      transform: rotateY(-360deg);
+    }
+  }
+
+
+
+
+
+    .cube__face--front  { transform: rotateY(  0deg) translateZ(60px); }
+    .cube__face--right  { transform: rotateY( 90deg) translateZ(60px); }
+    .cube__face--back   { transform: rotateY(180deg) translateZ(60px); }
+    .cube__face--left   { transform: rotateY(270deg) translateZ(60px); }
+
+
+
+    .text {
+        flex: 0.8;
+        font-weight: bold;
+        font-size: 0.8em;
+        margin-top: 0.2em;
+        text-align: left;
+    }
+
+    table {
+        font-size: 10px;
+        color: white;
+    }
+
+    tr  td {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 70px;
+        min-width: 30px;
+        line-height: 1.6;
+    }
+
+    .chip {
+        border-radius: 8px;
+        padding-left: 0.3em;
+        padding-right: 0.3em;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    td:not(:first-child) {
+        text-align: right;
+    }
+
+    .blinking{
+        animation:blinkingText 1s infinite;
+    }
+    @keyframes blinkingText{
+        0%{		color: white;	}
+        49%{	color: transparent;	}
+        50%{	color: transparent;	}
+        69%{	color:transparent;	}
+        100%{	color: white;	}
+    }
+
+    hr {
+        margin: 0.5em 0;
+    }
+
+    .header-row {
+        border-top: 1px solid lightgrey;
+    }
+
+</style>
+
+  </head>
+
+  <body>
+
+<div class="scene">
+
+<div id="spinner">
+
+<div class="cube__face cube__face--front S21" >
+        <div>
+        <div>
+            <div class="live-text-col">
+               <div class="live-text"><span class="blinking">&#x25CF;</span> COVID-19</div>
+            </div>
+        </div>
+        <div onclick="clickHandler('india')">
+            <div class="row header-row">
+                
+                <div class="col">
+                <div class="heading-text">India</div>
+                </div>
+            </div>
+            <div class="clear"></div>
+                    <div class="row">
+                <div class="col">
+                    <div class="row text" id="infect">
+                        <div class='col party-1'>
+Cases
+                        </div>
+                        <div class='col party-1-score india-in' id='indiaCases'>
+                        </div>
+                    </div>
+                </div></div>
+
+
+            <div class="clear"></div>
+                    <div class="row">
+                <div class="col">
+                    <div class="row text" id="cured">
+                        <div class='col party-1'>
+Recovered
+                        </div>
+                        <div class='col party-1-score india-cu' id='indiaCured'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="clear"></div>
+                    <div class="row">
+                <div class="col">
+                    <div class="row text" id="death">
+                        <div class='col party-1'>
+Deaths
+                        </div>
+                        <div class='col party-1-score india-de' id='indiaDeaths'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+</div>
+
+</div>
+
+<div class="cube__face cube__face--left S20" >
+        <div>
+            <div class="live-text-col">
+               <div class="live-text"><span class="blinking">&#x25CF;</span> COVID-19</div>
+            </div>
+        </div>
+        <div onclick="clickHandler('world')">
+            <div class="row header-row">
+                
+                <div class="col">
+                <div class="heading-text">Worldwide</div>
+                </div>
+            </div>
+        
+            <div class="clear"></div>
+            <div class="row">
+                <div class="col">
+                    <div class="row text" id="infect">
+                        <div class='col party-2'>
+                        	Cases
+                        </div>
+                        <div class='col party-2-score world-in' id='worldCases'>
+                        </div>
+                    </div>
+                </div></div>
+            
+            <div class="clear"></div>
+                    <div class="row">
+                <div class="col">
+                    <div class="row text" id="cured">
+                        <div class='col party-2'>
+Recovered
+                        </div>
+                        <div class='col party-2-score world-cu' id='worldCured'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+                <div class="row">
+                <div class="col">
+                    <div class="row text" id="death">
+                        <div class='col party-2'>
+                        Deaths</div>
+                        <div class='col party-2-score world-de' id='worldDeaths'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+</div>
+
+    <div class="cube__face cube__face--back S21">
+        <div>
+        <div>
+            <div class="live-text-col">
+               <div class="live-text"><span class="blinking">&#x25CF;</span> COVID-19</div>
+            </div>
+        </div>
+        <div onclick="clickHandler('india')">
+            <div class="row header-row">
+                
+                <div class="col">
+                <div class="heading-text">India</div>
+                </div>
+            </div>
+            <div class="clear"></div>
+                    <div class="row">
+                <div class="col">
+                    <div class="row text" id="infect">
+                        <div class='col party-3'>
+Cases
+                        </div>
+                        <div class='col party-3-score india-in' id='indiaCases2'>
+                        </div>
+                    </div>
+                </div></div>
+           
+            <div class="clear"></div>
+                    <div class="row">
+                <div class="col">
+                    <div class="row text" id="cured">
+                        <div class='col party-3'>
+Recovered
+                        </div>
+                        <div class='col party-3-score india-cu' id='indiaCured2'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="clear"></div>
+                    <div class="row">
+                <div class="col">
+                    <div class="row text" id="death">
+                        <div class='col party-3'>
+Deaths
+                        </div>
+                        <div class='col party-3-score india-de' id='indiaDeaths2'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</div>
+
+</div>
+
+
+
+
+
+    <div class="cube__face cube__face--right S20">
+        <div>
+            <div class="live-text-col">
+               <div class="live-text"><span class="blinking">&#x25CF;</span> COVID-19</div>
+            </div>
+        </div>
+        <div onclick="clickHandler('world')">
+            <div class="row header-row">
+                
+                <div class="col">
+                <div class="heading-text">West Bengal</div>
+                </div>
+            </div>
+        
+            <div class="clear"></div>
+            <div class="row">
+                <div class="col">
+                    <div class="row text" id="infect">
+                        <div class='col party-4'>
+                        	Cases
+                        </div>
+                        <div class='col party-4-score world-in' id='wbCases'>
+                        </div>
+                    </div>
+                </div></div>
+
+            <div class="clear"></div>
+                    <div class="row">
+                <div class="col">
+                    <div class="row text" id="cured">
+                        <div class='col party-4'>
+Recovered
+                        </div>
+                        <div class='col party-4-score world-cu' id='wbCured'>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+
+            <div class="clear"></div>
+                <div class="row">
+                <div class="col">
+                    <div class="row text" id="death">
+                        <div class='col party-4'>
+                        Deaths</div>
+                        <div class='col party-4-score world-de' id='wbDeaths'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+  </div>
+</div>
+
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+   <script type="text/javascript">
+      $.getJSON("https://covid19api.io/api/v1/AllReports", function(data) {
+
+        var cases = data.reports[0]['cases'];
+		var deaths = data.reports[0]['deaths'];
+        var recovered = data.reports[0]['recovered'];
+
+document.getElementById('worldCases').innerHTML = new Number(cases).toLocaleString('en-IN');
+document.getElementById('worldDeaths').innerHTML = new Number(deaths).toLocaleString('en-IN');
+document.getElementById('worldCured').innerHTML = new Number(recovered).toLocaleString('en-IN');
+
+          
+    
+      });
+    </script>
+
+
+    <script type="text/javascript">
+      $.getJSON("https://spreadsheets.google.com/feeds/list/1xbqxEMiqUjV_82DbhR9zHPrKKbcZTHl-84gGDcaqup8/od6/public/values?alt=json", function(data) {
+
+ var sheetData = data.feed.entry;
+
+        var i;
+
+        for (i = 0; i < sheetData.length; i++) {
+
+          if (data.feed.entry[i]['gsx$statecode']['$t'] == 'WB'){
+	   var wbcases = new Number(data.feed.entry[i]['gsx$confirmed']['$t']).toLocaleString('en-IN');
+	   var wbdeaths= new Number(data.feed.entry[i]['gsx$deaths']['$t']).toLocaleString('en-IN');
+	   var wbrecovered = new Number(data.feed.entry[i]['gsx$recovered']['$t']).toLocaleString('en-IN');
+	  
+	   }
+ 	
+	}
+          var cases = new Number(data.feed.entry[0]['gsx$confirmed']['$t']).toLocaleString('en-IN');
+          var deaths = new Number(data.feed.entry[0]['gsx$deaths']['$t']).toLocaleString('en-IN');
+          var recovered = new Number(data.feed.entry[0]['gsx$recovered']['$t']).toLocaleString('en-IN');
+          
+document.getElementById('indiaCases').innerHTML = (cases );
+document.getElementById('indiaDeaths').innerHTML = (deaths);
+document.getElementById('indiaCured').innerHTML = (recovered);
+document.getElementById('indiaCases2').innerHTML = (cases);
+document.getElementById('indiaDeaths2').innerHTML = (deaths);
+document.getElementById('indiaCured2').innerHTML = (recovered);
+document.getElementById('wbCases').innerHTML = (wbcases);
+document.getElementById('wbDeaths').innerHTML = (wbdeaths);
+document.getElementById('wbCured').innerHTML = (wbrecovered);     
+      });
+    </script>
+
+  </body>
+
+</html>
